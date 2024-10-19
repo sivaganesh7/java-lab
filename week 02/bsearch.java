@@ -1,37 +1,29 @@
+import java.util.Scanner;
 
-import java.util.*;
-public class bsearch {
-	public static  int binarySearch(int a[], int n, int key){
-		int low =0;
-		int high = n-1;
-		while(low <= high){
-			int mid = (low + high )/2;
-			if ( a[mid] == key)
-				return mid;
-			else  if ( a[mid] < key)
-				high = mid - 1;
-			else
-				low = mid + 1; 
-		}
-		return -1;	
-	}
-	public static void main(String[] args){
-        	Scanner sc = new Scanner(System.in);
-        	System.out.print("Enter the number of elements in the array: ");
-        	int n = sc.nextInt();
-        	int arr[] = new int[n];
-       	 	System.out.println("Enter the elements: ");
-        	int i;
-        	for(i = 0; i < n; i++){
-            		arr[i] = sc.nextInt();
-        	}
-        	System.out.println("Enter the key: ");
-        	int key = sc.nextInt();
- 		int pos = binarySearch(arr, n, key);
- 		if(pos == -1)
- 			System.out.println("key is not found.");
- 		else
- 			System.out.println("key is found at "+ pos);
-		}
+public class binary_search {
+    public static void main(String[] args) {
+        int[] arr= { 1, 2, 3, 4, 5, 10 };
+        
+        Scanner s=new Scanner(System.in);
+
+        int l = 0;
+        int ss = s.nextInt();
+        int h = arr.length - 1;
+
+        while (l <= h) {
+            int mid = (l + (h-l)/2);
+            if (arr[mid] == ss) {
+                System.out.println(s + " is found at index " + mid);
+                break;
+
+            } else if (arr[mid] < ss) {
+                l = mid + 1;
+
+            } else {
+                h = mid - 1;
+            }
+        }
+        s.close();
+    }
+
 }
-
