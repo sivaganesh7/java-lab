@@ -1,41 +1,35 @@
-abstract class Shape {
-    abstract double getArea();
-}
-
-class Rectangle extends Shape {
-    private double length;
-    private double width;
-
-    Rectangle(double length, double width) {
-        this.length = length;
-        this.width = width;
-    }
-
-    @Override
-    double getArea() {
-        return length * width;
+//hierachical inheritance
+import java.util.Scanner;
+class  bankaccount{
+    static int amount=500;
+    public void deposit(){
+        // System.out.println("Deposit amount into general account: ");
+        // Scanner s=new Scanner(System.in);
+        // int dep_amount=s.nextInt();
+        // amount+=dep_amount;
+        // System.out.println("after deposit amount int0 account: "+amount);
     }
 }
-
-class Circle extends Shape {
-    private final double PI = 3.14;
-    private double radius;
-
-    Circle(double radius) {
-        this.radius = radius;
+class savingsaccount extends bankaccount{
+    public void deposit(){//overriding the super class deposit method
+        System.out.println("Deposit amount into account: ");
+        Scanner s=new Scanner(System.in);
+        int dep_amount=s.nextInt();
+        amount+=dep_amount;
+        System.out.println("Deposited amount is: "+dep_amount);
     }
-
-    @Override
-    double getArea() {
-        return PI * radius * radius;
+    
+}
+class checkaccount extends bankaccount{
+    void checkbalance(){
+        System.out.println("Balance in your account: "+amount);
     }
 }
-
-public class HierarchicalInheritance {
+public class hierarchical_inheritance {
     public static void main(String[] args) {
-        Rectangle rect = new Rectangle(12.5, 25);
-        Circle circ = new Circle(15);
-        System.out.println("Area of Rectangle: " + rect.getArea());
-        System.out.println("Area of Circle: " + circ.getArea());
-    }
+    savingsaccount s=new savingsaccount();
+    s.deposit();
+    checkaccount c=new checkaccount();
+    c.checkbalance();
+}
 }
