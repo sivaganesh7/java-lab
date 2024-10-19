@@ -1,25 +1,42 @@
-public class bubblesort {
-    public static void main(String[] args) {
-        // bubble sort
-        int[] arr = { 64, 34, 25, 12, 22, 11, 90 };
-        System.out.println("before sorted : ");
-        for (int k = 0; k < arr.length; k++) {
-            System.out.print(arr[k] + " ");
+import java.util.Scanner;
+public class bubble {
+    void bub(int[] a) {
+        int n = a.length;  
+        int temp;
+        System.out.println("::: Before Sorting :::");
+        for (int k = 0; k < n; k++) {
+            System.out.print(a[k] + "\t");
         }
-
-        int n = arr.length;
+        System.out.println();
         for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+            for (int j = 0; j < n - i - 1; j++) {
+                if (a[j] > a[j + 1]) {
+                    temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
                 }
             }
         }
-        System.out.println("\nafter sorted : ");
-        for (int k = 0; k < arr.length; k++) {
-            System.out.print(arr[k] + " ");
+        System.out.println("::: After Sorting :::");
+        for (int k = 0; k < n; k++) {
+            System.out.print(a[k] + "\t");
         }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        bubble o = new bubble();  
+        int arr[] = new int[5];  
+        Scanner s = new Scanner(System.in);
+
+        
+        System.out.println("Enter 5 numbers into the array: ");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = s.nextInt();  
+        }
+
+        o.bub(arr);
+
+        s.close();  
     }
 }
