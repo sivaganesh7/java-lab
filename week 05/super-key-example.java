@@ -1,43 +1,36 @@
-// Superclass
-class Animal {
-    String name;
+class animal{
+    int age=20;
 
-    Animal(String name) {
-        this.name = name;
+    // animal(){
+    //     System.out.println("this is animal class");
+    // }
+    
+    animal(String name){
+        System.out.println("animal name is: "+name);
     }
-
-    void sound() {
-        System.out.println("Animal makes a sound");
-    }
-}
-
-// Subclass
-class Dog extends Animal {
-    String breed;
-
-    Dog(String name, String breed) {
-        super(name);
-        this.breed = breed;
-    }
-
-    @Override
-    void sound() {
-        super.sound();
-        System.out.println("Dog barks");
-    }
-
-  void displayInfo() {
-        System.out.println("Name: " + name);
-        System.out.println("Breed: " + breed);
+    void eat(){
+        System.out.println("animal is eating");
     }
 }
-
-// Main class
-public class SuperKeywordExample {
+class dog extends animal{
+   
+    dog(){//constructor
+        super("cat");
+        System.out.println("this is dog class");
+    }
+    int age=30;
+    void display(){
+        System.out.println("animal age is: "+super.age);
+        System.out.println("dog age is: "+age);
+    }
+    void bark(){
+        System.out.println("dog barking");
+    }
+}
+public class superjava{
     public static void main(String[] args) {
-        Dog myDog = new Dog("Buddy", "Golden Retriever");
-
-        myDog.displayInfo();
-        myDog.sound();
-    }
-}
+    dog d=new dog();
+    d.eat();
+    d.bark();  
+    d.display();   
+}}
